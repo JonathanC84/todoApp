@@ -22,6 +22,19 @@
                 <th>Last update</th>
             </tr>
             </thead>
+            <tbody>
+                <tr th:each="item : ${todoItems}">
+                    <td>&nbsp;</td>
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${item.description}"></td>
+                    <td>
+                        <span th:if="${item.isComplete} == true" th:text="Yes"></span>
+                        <span th:unless="${item.isComplete} == false" th:text="No"></span>
+                    </td>
+                    <td th:text="${item.createdAt}"></td>
+                    <td th:text="${item.updatedAt}"></td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </body>
