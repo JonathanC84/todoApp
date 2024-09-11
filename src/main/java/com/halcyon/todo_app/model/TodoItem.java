@@ -1,11 +1,14 @@
 package com.halcyon.todo_app.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 @Getter
 @Setter
@@ -17,8 +20,9 @@ public class TodoItem implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank(message = "Description is required")
     private String description;
-    private boolean isComplete;
+    private Boolean isComplete;
     private Instant createdAt;
     private Instant updatedAt;
 

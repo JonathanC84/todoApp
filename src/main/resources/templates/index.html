@@ -15,8 +15,8 @@
         <table class="table table-bordered table-striped">
             <thead>
             <tr>
-                <th>Task title</th>
-                <th>Id</th>
+                <th>Action</th>
+                <!--  <th>Id</th> -->
                 <th>Description</th>
                 <th>Completed</th>
                 <th>Created at</th>
@@ -25,8 +25,15 @@
             </thead>
             <tbody>
                 <tr th:each="item : ${todoItems}">
-                    <td>&nbsp;</td>
-                    <td th:text="${item.id}"></td>
+                    <td>
+                        <div class="btn btn-group-sm" role="group">
+                            <a class="btn btn-outline-info" th:href="@{/edit/{id}(id=${item.id})}">
+                                <i class="bi bi-pencil-fill"></i>&#9998;</a>
+                            <a class="btn btn-outline-danger" th:href="@{/delete/{id}(id=${item.id})}">
+                                <i class="bi bi-trash-fill"></i>&#10006;</a>
+                        </div>
+                    </td>
+                    <!-- <td th:text="${item.id}"></td> -->
                     <td th:text="${item.description}"></td>
                     <td>
                         <span th:if="${item.isComplete} == true" th:text="Yes"></span>
