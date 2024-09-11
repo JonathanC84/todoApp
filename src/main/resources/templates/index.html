@@ -4,14 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:rel="stylesheet" th:ref="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
     <title>ToDo List Application</title>
 </head>
 <body>
-    <div>
+    <div class="container">
         <h1>My To Do List</h1>
         <hr>
 
-        <table>
+        <table class="table table-bordered table-striped">
             <thead>
             <tr>
                 <th>Task</th>
@@ -36,6 +37,13 @@
                 </tr>
             </tbody>
         </table>
+
+        <p>
+            <a class="btn btn-outline-success" href="/create-todo">
+                <i class="bi bi-plus-square-fill"></i>Add a task</a>
+        </p>
     </div>
+
+    <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.min.js}"></script>
 </body>
 </html>
